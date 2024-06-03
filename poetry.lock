@@ -493,7 +493,7 @@ yt_dlp = {version = ">=2023.11.14,<2024.0.0", optional = true, markers = "extra 
 llama2 = ["replicate (>=0.15.4,<0.16.0)"]
 gmail = ["requests (>=2.31.0,<3.0.0)", "google-api-core (>=2.15.0,<3.0.0)", "google-api-python-client (>=2.111.0,<3.0.0)", "google-auth (>=2.25.2,<3.0.0)", "google-auth-httplib2 (>=0.2.0,<0.3.0)", "google-auth-oauthlib (>=1.2.0,<2.0.0)"]
 opensource = ["sentence-transformers (>=2.2.2,<3.0.0)", "gpt4all (==2.0.2)", "torch (==2.0.0)"]
-dataloaders = ["sentence-transformers (>=2.2.2,<3.0.0)", "docx2txt (>=0.8,<0.9)", "duckduckgo-search (>=3.8.5,<4.0.0)", "pytube (>=15.0.0,<16.0.0)", "unstructured[all-docs,local-inference] (>=0.10.18,<0.11.0)", "youtube-transcript-api (>=0.6.1,<0.7.0)"]
+dataloaders = ["sentence-transformers (>=2.2.2,<3.0.0)", "docx2txt (>=0.8,<0.9)", "duckduckgo-search (>=3.8.5,<4.0.0)", "pytube (>=15.0.0,<16.0.0)", "unstructured[local-inference,all-docs] (>=0.10.18,<0.11.0)", "youtube-transcript-api (>=0.6.1,<0.7.0)"]
 slack = ["slack-sdk (==3.21.3)", "flask (>=2.3.3,<3.0.0)"]
 github = ["PyGithub (>=1.59.1,<2.0.0)", "gitpython (>=3.1.38,<4.0.0)"]
 aws-bedrock = ["boto3 (>=1.34.20,<2.0.0)"]
@@ -954,6 +954,24 @@ python-versions = ">=3.6"
 googleapis-common-protos = ">=1.5.5"
 grpcio = ">=1.62.2"
 protobuf = ">=4.21.6"
+
+[[package]]
+name = "gunicorn"
+version = "22.0.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1,!=0.36.0)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+testing = ["gevent", "eventlet", "coverage", "pytest", "pytest-cov"]
+tornado = ["tornado (>=0.2)"]
 
 [[package]]
 name = "h11"
@@ -2484,7 +2502,7 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "uvicorn"
-version = "0.30.0"
+version = "0.30.1"
 description = "The lightning-fast ASGI server."
 category = "main"
 optional = false
@@ -2638,7 +2656,7 @@ testing = ["pytest (>=6,<8.1.0 || >=8.2.0)", "pytest-checkdocs (>=2.4)", "pytest
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.12"
-content-hash = "980b50f2a54704e9e8352006380a190ec3fd214ebcad1e5828b33ee33586bb59"
+content-hash = "e236c0daea4ce9d774bc69fbd3cb0df2bdda187e2d4e81de5c278c6766c8a969"
 
 [metadata.files]
 aiohttp = []
@@ -2702,6 +2720,7 @@ groq = []
 grpc-google-iam-v1 = []
 grpcio = []
 grpcio-status = []
+gunicorn = []
 h11 = []
 httpcore = []
 httptools = []
