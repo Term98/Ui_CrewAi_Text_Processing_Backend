@@ -3,6 +3,7 @@ from uuid import uuid4
 from threading import Thread
 from datetime import datetime
 from flask_cors import CORS
+import os
 
 import json
 from crew import TextProcessingCrew
@@ -37,6 +38,10 @@ def kickoff_crew(job_id:str, input:str):
 
 
     # Let App Know We Are Done
+    
+@app.route("/api/hello",methods=['GET'])
+def run_hello():
+    return jsonify({'Message':"Succesfull"}) , 200
 
 @app.route("/api/crew",methods=['POST'])
 def run_crew():
@@ -73,4 +78,4 @@ def get_status(job_id):
     }) , 200
 
 if __name__ == '__main__':
-    app.run(debug=True,port=3005)
+    app.run(debug=True,port=os.getenv('PORT'))
